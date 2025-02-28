@@ -2064,11 +2064,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kidak\\Downloads\\Blazor web app\\Weather test\\Weather test\\Weather test.csproj",
-      "projectName": "Weather test",
-      "projectPath": "C:\\Users\\kidak\\Downloads\\Blazor web app\\Weather test\\Weather test\\Weather test.csproj",
+      "projectUniqueName": "C:\\Users\\kidak\\Downloads\\Weather BLazor App\\Weather BLazor App.csproj",
+      "projectName": "Weather BLazor App",
+      "projectPath": "C:\\Users\\kidak\\Downloads\\Weather BLazor App\\Weather BLazor App.csproj",
       "packagesPath": "C:\\Users\\kidak\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kidak\\Downloads\\Blazor web app\\Weather test\\Weather test\\obj\\",
+      "outputPath": "C:\\Users\\kidak\\Downloads\\Weather BLazor App\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\kidak\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "06GUfqcMdxE=",
+  "dgSpecHash": "kIVCjL6dhek=",
   "success": true,
-  "projectFilePath": "C:\\Users\\kidak\\Downloads\\Blazor web app\\Weather test\\Weather test\\Weather test.csproj",
+  "projectFilePath": "C:\\Users\\kidak\\Downloads\\Weather BLazor App\\Weather BLazor App.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kidak\\.nuget\\packages\\microsoft.aspnetcore.authorization\\8.0.5\\microsoft.aspnetcore.authorization.8.0.5.nupkg.sha512",
     "C:\\Users\\kidak\\.nuget\\packages\\microsoft.aspnetcore.components\\8.0.5\\microsoft.aspnetcore.components.8.0.5.nupkg.sha512",
