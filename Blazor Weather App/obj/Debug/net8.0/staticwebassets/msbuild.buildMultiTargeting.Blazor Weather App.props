@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Blazor Weather App.props" />
+</Project>
