@@ -1,0 +1,110 @@
+﻿@page "/"
+@inject HttpClient Http
+@using System.Text.Json
+<PageTitle>Weather</PageTitle>
+
+<h1>Weather</h1>
+<p>@DisplayMessage</p>
+<input @bind-value="CityName"/>
+<button @onclick="OnButtonClick">Get Weather</button>
+<div>
+    <br />
+    <p>Description: @CurrentWeatherForeCast?.weather?[0].description</p>
+    <ul>
+        <li>Temp: @CurrentWeatherForeCast?.main.temp</li>
+        <li>Humidity: @CurrentWeatherForeCast?.main.humidity</li>
+        <li>Wind speed: @CurrentWeatherForeCast?.wind.speed</li>
+        <li>Sea level: @CurrentWeatherForeCast?.main.sea_level</li>
+    </ul>
+</div>
+
+@code {
+    private static readonly string apiKey = "522842c7690e98a044cc4bed41af40c5";
+    private static readonly string baseUrl = "https://api.openweathermap.org/data/2.5/weather";
+    private string? DisplayMessage;
+    private string? CityName;
+    private static Root? CurrentWeatherForeCast;
+    private async Task OnButtonClick()
+    {
+        await LoadWeatherForArea();
+    }
+    public async Task LoadWeatherForArea()
+    {
+        DisplayMessage = "Weather summary for: " + CityName;
+        string apiKey = "522842c7690e98a044cc4bed41af40c5";
+        string url = $"https://api.openweathermap.org/data/2.5/weather?q={CityName}&appid={apiKey}&units=metric";
+        HttpClient client = new HttpClient();
+        HttpResponseMessage response = await client.GetAsync(url);
+        var json = await response.Content.ReadAsStringAsync();
+        CurrentWeatherForeCast = JsonSerializer.Deserialize<Root>(json);
+    }
+
+    protected override void OnInitialized()
+    {
+        DisplayMessage = "Please input the location you wish to recieve weather conditions for...";
+        CityName = string.Empty;
+    }
+    public class coord
+    {
+    public double lon { get; set; }
+    public double lat { get; set; }
+    }
+
+    public class weather
+    {
+    public int id { get; set; }
+    public string main { get; set; }
+    public string description { get; set; }
+    public string icon { get; set; }
+    }
+
+    public class main
+    {
+    public double temp { get; set; }
+    public double feels_like { get; set; }
+    public double temp_min { get; set; }
+    public double temp_max { get; set; }
+    public int pressure { get; set; }
+    public int humidity { get; set; }
+    public int sea_level { get; set; }
+    public int grnd_level { get; set; }
+    }
+
+    public class wind
+    {
+    public double speed { get; set; }
+    public int deg { get; set; }
+    public double gust { get; set; }
+    }
+
+    public class clouds
+    {
+    public int all { get; set; }
+    }
+
+    public class sys
+    {
+    public int type { get; set; }
+    public int id { get; set; }
+    public string country { get; set; }
+    public long sunrise { get; set; }
+    public long sunset { get; set; }
+    }
+
+    public class Root
+    {
+    public coord coord { get; set; }
+    public List<weather> weather { get; set; }
+    public string @base { get; set; }
+    public main main { get; set; }
+    public int visibility { get; set; }
+    public wind wind { get; set; }
+    public clouds clouds { get; set; }
+    public long dt { get; set; }
+    public sys sys { get; set; }
+    public int timezone { get; set; }
+    public int id { get; set; }
+    public string name { get; set; }
+    public int cod { get; set; }
+    }
+    }
