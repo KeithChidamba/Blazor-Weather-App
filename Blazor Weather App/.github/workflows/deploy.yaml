@@ -1,0 +1,29 @@
+name: Deploy Blazor to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Trigger the deployment on push to main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0'  # Make sure to use the correct version of .NET
+
+      - name: Publish Blazor app
+        run: |
+          dotnet publish -c Release -o ./publish
+          
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4.1.2
+        with:
+          branch: main  # Target branch
+          folder: ./publish/wwwroot  # Path to your Blazor app
+          token: ${{ secrets.GITHUB_TOKEN }}
