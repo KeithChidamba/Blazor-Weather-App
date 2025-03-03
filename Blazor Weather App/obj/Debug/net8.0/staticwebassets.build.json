@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "kZzeVMDe3mxF1wC4u/A8NmOUJuNk8kKoXMcYximcq18=",
+  "Hash": "AAFpi02S/dec4deTbeFBVo5cYtPSNNMf8TPGogNsCSY=",
   "Source": "Blazor Weather App",
   "BasePath": "/",
   "Mode": "Root",
@@ -7807,6 +7807,25 @@
       "OriginalItemSpec": "C:\\Users\\kidak\\RiderProjects\\Blazor-Weather-App\\Blazor Weather App\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Blazor Weather App.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Users\\kidak\\RiderProjects\\Blazor-Weather-App\\Blazor Weather App\\wwwroot\\.nojekyll",
+      "SourceId": "Blazor Weather App",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kidak\\RiderProjects\\Blazor-Weather-App\\Blazor Weather App\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": ".nojekyll",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\.nojekyll"
+    },
+    {
       "Identity": "C:\\Users\\kidak\\RiderProjects\\Blazor-Weather-App\\Blazor Weather App\\wwwroot\\css\\app.css",
       "SourceId": "Blazor Weather App",
       "SourceType": "Discovered",
@@ -7919,6 +7938,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "C:\\Users\\kidak\\RiderProjects\\Blazor-Weather-App\\Blazor Weather App\\wwwroot\\js\\Location.js",
+      "SourceId": "Blazor Weather App",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kidak\\RiderProjects\\Blazor-Weather-App\\Blazor Weather App\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "js/Location.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Location.js"
     },
     {
       "Identity": "C:\\Users\\kidak\\RiderProjects\\Blazor-Weather-App\\Blazor Weather App\\wwwroot\\sample-data\\weather.json",

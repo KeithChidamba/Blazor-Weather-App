@@ -1029,6 +1029,9 @@ C:\Users\kidak\Downloads\Blazor Weather App\Blazor Weather App\obj\Debug\net8.0\
 C:\Users\kidak\Downloads\Blazor Weather App\Blazor Weather App\obj\Debug\net8.0\refint\Blazor Weather App.dll
 C:\Users\kidak\Downloads\Blazor Weather App\Blazor Weather App\obj\Debug\net8.0\Blazor Weather App.pdb
 C:\Users\kidak\Downloads\Blazor Weather App\Blazor Weather App\obj\Debug\net8.0\ref\Blazor Weather App.dll
+C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\Blazor Weather App.pdb
+C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\Blazor Weather App.wasm
+C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\blazor.boot.json
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\blazor.webassembly.js
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\dotnet.js
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\dotnet.js.map
@@ -1230,19 +1233,6 @@ C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Xml.XPath.wasm
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Xml.XPath.XDocument.wasm
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\WindowsBase.wasm
-C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\dotnet.native.8.0.5.2ig78hxydh.js.gz
-C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\dotnet.native.wasm.gz
-C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\dotnet.runtime.8.0.5.6g7024dbez.js.gz
-C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\icudt_CJK.dat.gz
-C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\icudt_EFIGS.dat.gz
-C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\dotnet.runtime.js.map.gz
-C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\icudt_no_CJK.dat.gz
-C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\dotnet.js.map.gz
-C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\blazor.webassembly.js.gz
-C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\dotnet.js.gz
-C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\Blazor Weather App.pdb
-C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\Blazor Weather App.wasm
-C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\blazor.boot.json
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\Blazor Weather App.pdb.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\Microsoft.Extensions.Logging.Abstractions.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Memory.wasm.gz
@@ -1256,6 +1246,7 @@ C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Runtime.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Text.RegularExpressions.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Runtime.InteropServices.JavaScript.wasm.gz
+C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\dotnet.native.8.0.5.2ig78hxydh.js.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Runtime.InteropServices.RuntimeInformation.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Runtime.Loader.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Transactions.Local.wasm.gz
@@ -1274,7 +1265,9 @@ C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Net.Primitives.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Threading.ThreadPool.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.IO.Compression.FileSystem.wasm.gz
+C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\dotnet.native.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Diagnostics.StackTrace.wasm.gz
+C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\dotnet.runtime.8.0.5.6g7024dbez.js.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.ComponentModel.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Numerics.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Threading.Tasks.Extensions.wasm.gz
@@ -1344,6 +1337,7 @@ C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Security.Principal.Windows.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Security.Cryptography.Encoding.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Threading.Tasks.Parallel.wasm.gz
+C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\icudt_CJK.dat.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.ValueTuple.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Threading.Channels.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Buffers.wasm.gz
@@ -1357,6 +1351,7 @@ C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Linq.Queryable.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Runtime.Handles.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Security.Cryptography.Cng.wasm.gz
+C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\icudt_EFIGS.dat.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.IO.FileSystem.AccessControl.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Net.WebProxy.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.ComponentModel.Annotations.wasm.gz
@@ -1364,6 +1359,7 @@ C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\Microsoft.Win32.Primitives.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Net.Ping.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Net.NameResolution.wasm.gz
+C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\dotnet.runtime.js.map.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Xml.Linq.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Drawing.Primitives.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Security.AccessControl.wasm.gz
@@ -1380,12 +1376,14 @@ C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.ServiceProcess.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.IO.MemoryMappedFiles.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Xml.XPath.wasm.gz
+C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\icudt_no_CJK.dat.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Reflection.TypeExtensions.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.IO.FileSystem.Primitives.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\Microsoft.Extensions.FileProviders.Physical.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Security.Cryptography.OpenSsl.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Diagnostics.TextWriterTraceListener.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Net.ServicePoint.wasm.gz
+C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\dotnet.js.map.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Runtime.Serialization.Json.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Security.Principal.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Runtime.Numerics.wasm.gz
@@ -1397,6 +1395,7 @@ C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.IO.Compression.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Net.WebHeaderCollection.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\Microsoft.Win32.Registry.wasm.gz
+C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\blazor.webassembly.js.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\mscorlib.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.IO.Pipes.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.IO.wasm.gz
@@ -1422,6 +1421,7 @@ C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Formats.Tar.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Globalization.Calendars.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Globalization.wasm.gz
+C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\dotnet.js.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Xml.XPath.XDocument.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Diagnostics.Tracing.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Debug\net8.0\wwwroot\_framework\System.Private.Uri.wasm.gz
@@ -1646,6 +1646,7 @@ C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\obj\Debug\net
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\obj\Debug\net8.0\Blazor Weather App.AssemblyInfo.cs
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\obj\Debug\net8.0\Blazor Weather App.csproj.CoreCompileInputs.cache
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\obj\Debug\net8.0\Blazor Weather App.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\obj\Debug\net8.0\Blazor Weather App.sourcelink.json
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\obj\Debug\net8.0\webcil\Microsoft.AspNetCore.Authorization.wasm
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\obj\Debug\net8.0\webcil\Microsoft.AspNetCore.Components.wasm
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\obj\Debug\net8.0\webcil\Microsoft.AspNetCore.Components.Forms.wasm
@@ -2060,4 +2061,3 @@ C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\obj\Debug\net
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\obj\Debug\net8.0\refint\Blazor Weather App.dll
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\obj\Debug\net8.0\Blazor Weather App.pdb
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\obj\Debug\net8.0\ref\Blazor Weather App.dll
-C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\obj\Debug\net8.0\Blazor Weather App.sourcelink.json

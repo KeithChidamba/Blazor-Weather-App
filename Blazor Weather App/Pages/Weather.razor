@@ -1,14 +1,20 @@
 ﻿@page "/"
 @inject HttpClient Http
 @using System.Text.Json
-<PageTitle>Weather</PageTitle>
+@inject IJSRuntime JS
 
-<h1>Weather</h1>
-<p>@DisplayMessage</p>
-<input @bind-value="CityName"/>
-<button @onclick="OnButtonClick">Get Weather</button>
+<PageTitle>Weather</PageTitle>
+<div class="container">
+    <h1>Weather App</h1>
+    <div class="form-container">
+        <input placeholder="Enter City Name"  @bind-value="EnteredCityName"/>
+        <button class="SearchButton" @onclick="OnButtonClick" disabled="@isRunning">Get Weather</button>
+    </div>
+       <h1>@DisplayMessage</h1>
+</div>
+@if (isRunning) { <ProgressBar Value="@progressValue"></ProgressBar> }
 <div>
-    <br />
+    <br/>
     <p>Description: @CurrentWeatherForeCast?.weather?[0].description</p>
     <ul>
         <li>Temp: @CurrentWeatherForeCast?.main.temp</li>
@@ -19,30 +25,100 @@
 </div>
 
 @code {
+    private double Latitude { get; set; }
+    private double Longitude { get; set; }
+    private DotNetObjectReference<Weather>? dotNetHelper;
     private static readonly string apiKey = "522842c7690e98a044cc4bed41af40c5";
     private static readonly string baseUrl = "https://api.openweathermap.org/data/2.5/weather";
     private string? DisplayMessage;
-    private string? CityName;
+    private string? LocationCityName;
+    private string? EnteredCityName = string.Empty;
     private static Root? CurrentWeatherForeCast;
+    private bool isRunning = false;
+    private int progressValue = 0;
+    private string LocationInfo;
     private async Task OnButtonClick()
     {
-        await LoadWeatherForArea();
+        isRunning = true;
+        await LoadWeatherForArea(EnteredCityName,InitProgress());
     }
-    public async Task LoadWeatherForArea()
+    public async Task LoadWeatherForArea(string CityName,IProgress<int> progress)
     {
-        DisplayMessage = "Weather summary for: " + CityName;
         string apiKey = "522842c7690e98a044cc4bed41af40c5";
         string url = $"https://api.openweathermap.org/data/2.5/weather?q={CityName}&appid={apiKey}&units=metric";
         HttpClient client = new HttpClient();
         HttpResponseMessage response = await client.GetAsync(url);
+        progress.Report(65);
+        await Task.Delay(300);
         var json = await response.Content.ReadAsStringAsync();
         CurrentWeatherForeCast = JsonSerializer.Deserialize<Root>(json);
+        DisplayMessage = "Weather summary for: " + CityName;
+        progress.Report(100);
+        await Task.Delay(500);
+        isRunning = false;
+    }
+    Progress<int> InitProgress()
+    {
+        progressValue = 0;
+        var progress = new Progress<int>(value =>
+        {
+            progressValue = value;
+            StateHasChanged();
+        });
+        return progress;
+    }
+    private async Task GetCityName()
+    {
+        var progress = InitProgress();
+        string apiUrl = $"https://nominatim.openstreetmap.org/reverse?format=json&lat={Latitude}&lon={Longitude}&zoom=10&addressdetails=1";
+        try
+        {
+            await Task.Run(() => ProcessRequest(apiUrl,progress));
+            string CountyName = JsonDocument.Parse(LocationInfo).RootElement.GetProperty("address").GetProperty("county").ToString();
+            LocationCityName = CountyName.Replace("City of ", "");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex);
+        }
+        await Task.Run(() =>  LoadWeatherForArea(LocationCityName,progress));
+        StateHasChanged();
     }
 
+    private async Task ProcessRequest(string apiUrl,IProgress<int> progress)
+    {
+        HttpClient client = new HttpClient();
+        HttpResponseMessage response = await client.GetAsync(apiUrl);
+        progress.Report(10);
+        LocationInfo = await response.Content.ReadAsStringAsync();
+        progress.Report(30);
+    }
+    private async Task GetLocation()
+    {
+        isRunning = true;
+        dotNetHelper = DotNetObjectReference.Create(this);
+        await JS.InvokeVoidAsync("getGeolocation", dotNetHelper);
+    }
+    
+    [JSInvokable]
+    public void ReceiveLocation(double latitude, double longitude)
+    {
+        Latitude = latitude;
+        Longitude = longitude; 
+        GetCityName();
+    }
     protected override void OnInitialized()
     {
         DisplayMessage = "Please input the location you wish to receive weather conditions for...";
-        CityName = string.Empty;
+        GetLocation();
+    }
+    private class NominatimResponse
+    {
+        public Address? address { get; set; }
+    }
+    private class Address
+    {
+        public string? city { get; set; }
     }
     public class coord
     {

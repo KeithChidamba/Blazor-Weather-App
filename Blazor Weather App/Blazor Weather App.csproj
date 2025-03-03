@@ -2,13 +2,25 @@
 
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
+        <BlazorCacheBootResources>false</BlazorCacheBootResources>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <Configuration Condition=" '$(Configuration)' == 'Release' ">Release</Configuration>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.5"/>
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.5" PrivateAssets="all"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="wwwroot\js\Location.js" />
+      <None Update="Pages\ProgressBar.css">
+        <DependentUpon>ProgressBar.razor</DependentUpon>
+      </None>
+      <None Update="Pages\Weather.css">
+        <DependentUpon>Weather.razor</DependentUpon>
+      </None>
     </ItemGroup>
 
 </Project>

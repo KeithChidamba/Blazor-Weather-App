@@ -1,0 +1,1 @@
+C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Release\net8.0\publish\web.config
