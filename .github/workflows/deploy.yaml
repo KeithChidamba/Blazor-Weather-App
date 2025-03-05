@@ -31,7 +31,7 @@ jobs:
 
       - name: Checkout
         run: |
-          git checkout -b build-output || git checkout build-output
+          git checkout -b WeatherBuild || git checkout WeatherBuild
 
       - name: Clean the build-output branch
         run: |
@@ -48,4 +48,4 @@ jobs:
           mv output/* .
           git add .
           git commit -m "Deploy built Blazor app"
-          git push origin build-output --force
+          git push origin WeatherBuild --force
