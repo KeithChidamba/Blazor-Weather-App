@@ -3,7 +3,7 @@ name: Build and Deploy Blazor App
 on:
   push:
     branches:
-      - Developement  # Change to your development branch if needed
+       Developement  # Change to your development branch if needed
 
 env:
   GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
