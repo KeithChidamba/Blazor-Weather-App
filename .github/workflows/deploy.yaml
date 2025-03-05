@@ -3,7 +3,7 @@ name: Build and Deploy Blazor App
 on:
   push:
     branches:
-      - main  # Change to your development branch if needed
+      - '*'  # Change to your development branch if needed
   pull_request:
     branches:
       - main
