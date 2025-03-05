@@ -28,7 +28,7 @@ jobs:
         run: dotnet restore
 
       - name: Build Blazor App
-        run: dotnet publish -c Release -o output
+        run: dotnet publish -c Release -o output./
 
       - name: Checkout
         run: |
@@ -46,4 +46,6 @@ jobs:
           git add .
           git commit -m "Deploy built Blazor app"
           git push origin WeatherBuild --force
-            - name: Clean Up Unwanted Files
+      - name: Clean the build-output branch
+        run: |
+          git rm -rf Blazor-Weather-App
