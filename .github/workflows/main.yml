@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: List the directory structure
+        run: |
+          ls -R /home/runner/work/Blazor-Weather-App/Blazor-Weather-App/Blazor-Weather-App
       - name: Checkout Repository
         uses: actions/checkout@v4
 
