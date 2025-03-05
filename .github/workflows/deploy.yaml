@@ -43,6 +43,12 @@ jobs:
         run: |
           cp -r output/wwwroot/* .
 
+      - name: Create _nojekyll file in root
+        run: |
+          echo "Creating _nojekyll file in root"
+          touch _nojekyll  # Creates an empty _nojekyll file in the root of the repo
+          ls -la  # Debugging:
+
       - name: Commit and Push Build to the build-output branch
         run: |
           git config --global user.email "github-actions@github.com"
@@ -54,7 +60,6 @@ jobs:
         run: |
           git rm -rf "Blazor Weather App"
           git rm -rf "output"
-          touch _nojekyll 
           git commit -m "Delete dummy output"
           git push origin WeatherBuild --force
 
