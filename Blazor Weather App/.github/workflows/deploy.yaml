@@ -1,0 +1,39 @@
+name: Build and Deploy Blazor App
+
+on:
+  push:
+    branches:
+      - main  # Change to your development branch if needed
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0.x'  # Change if using a different .NET version
+
+      - name: Restore Dependencies
+        run: dotnet restore
+
+      - name: Build Blazor App
+        run: dotnet publish -c Release -o output
+
+      - name: Commit and Push Build to Branch
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -B blazor-build  # Change branch name if needed
+          rm -rf wwwroot  # Optional: Clean old files
+          mv output/wwwroot wwwroot
+          git add wwwroot
+          git commit -m "Auto-commit: Blazor build output"
+          git push origin blazor-build --force
