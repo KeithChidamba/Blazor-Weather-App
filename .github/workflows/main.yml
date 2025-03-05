@@ -27,14 +27,14 @@ jobs:
 
       - name: Restore Dependencies
         run: dotnet restore
-        working-directory: ./Blazor-Weather-App  # Change based on your repo structure
+        working-directory: .  # Change based on your repo structure
 
       - name: List after restore
-        run: ls -R ./Blazor-Weather-App  # List files inside the project folder
+        run: ls -R ./  # List files inside the project folder
 
       - name: Build Blazor App
         run: dotnet publish -c Release -o output
-        working-directory: ./Blazor-Weather-App
+        working-directory: .
 
       - name: Commit and Push Build to Branch
         run: |
