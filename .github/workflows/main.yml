@@ -20,11 +20,11 @@ jobs:
 
       - name: Restore Dependencies
         run: dotnet restore
-        working-directory: Blazor-Weather-App   # Change this to your actual project folder
+        working-directory: ""  # Change this to your actual project folder
 
       - name: Build Blazor App
         run: dotnet publish -c Release -o output
-        working-directory: Blazor-Weather-App  # Change this too
+        working-directory: ""  # Change this too
 
       - name: Commit and Push Build to Branch
         run: |
@@ -32,7 +32,7 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git checkout -B main  # Change branch name if needed
           rm -rf wwwroot  # Optional: Clean old files
-          mv BlazorApp/output/wwwroot wwwroot  # Adjust path
+          mv Blazor-Weather-App/output/wwwroot wwwroot  # Adjust path
           git add wwwroot
           git commit -m "Auto-commit: Blazor build output"
           git push origin blazor-build --force
