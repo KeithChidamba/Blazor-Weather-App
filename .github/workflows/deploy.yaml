@@ -35,14 +35,14 @@ jobs:
           git fetch origin
           git checkout -b WeatherBuild || git checkout WeatherBuild
 
+      - name: Copy build files to the root
+        run: |
+          cp -r published/wwwroot/* .
+
       - name: Clean the branch (remove non-build files)
         run: |
           git rm -rf .  # Remove all files in the branch
           git clean -fd  # Remove untracked files
-
-      - name: Copy build files to the root
-        run: |
-          cp -r published/wwwroot/* .
 
       - name: Commit and Push Build to the build-output branch
         run: |
