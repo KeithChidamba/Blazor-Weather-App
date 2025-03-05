@@ -32,13 +32,21 @@ jobs:
       - name: Build Blazor App
         run: dotnet publish -c Release -o output
 
-      - name: Commit and Push Build to Branch
+      - name: Checkout or Create the build-output branch
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout -B blazor-build  # Change branch name if needed
-          rm -rf .  # Optional: Clean old files
-          mv output/wwwroot wwwroot
-          git add wwwroot
-          git commit -m "Auto-commit: Blazor build output"
-          git push origin blazor-build --force
+          git fetch origin
+          git checkout -b build-output || git checkout build-output
+
+      - name: Clean the build-output branch
+        run: |
+          git rm -rf .
+
+      - name: Copy build files to the branch
+        run: |
+          cp -r output/* .
+
+      - name: Commit and Push Build to the build-output branch
+        run: |
+          git add .
+          git commit -m "Deploy Blazor build"
+          git push origin build-output --force
