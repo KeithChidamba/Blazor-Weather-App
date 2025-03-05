@@ -49,7 +49,7 @@ jobs:
 
       - name: Copy build files to the branch
         run: |
-          cp -r output/wwwroot/* .
+          cp -r output/* .
 
       - name: Commit and Push Build to the build-output branch
         run: |
@@ -58,7 +58,8 @@ jobs:
           git add .
           git commit -m "Deploy built Blazor app"
           git push origin WeatherBuild --force
-          
       - name: Clean up and show build files only
         run: |
           git rm -rf "Blazor Weather App"
+          git commit -m "Delete dummy output"
+          git push origin WeatherBuild --force
