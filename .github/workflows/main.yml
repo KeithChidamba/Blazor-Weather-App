@@ -23,11 +23,9 @@ jobs:
         
       - name: Restore Dependencies
         run: dotnet restore
-        working-directory: /home/runner/work/Blazor-Weather-App/Blazor-Weather-App  # Change based on your repo structure
-
+        
       - name: Build Blazor App
         run: dotnet publish -c Release -o output
-        working-directory: .
 
       - name: Commit and Push Build to Branch
         run: |
