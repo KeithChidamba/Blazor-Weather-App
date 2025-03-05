@@ -29,10 +29,9 @@ jobs:
       - name: Build Blazor App
         run: dotnet publish -c Release -o output
 
-      - name: Checkout or Create the build-output branch
+      - name: Checkout
         run: |
-          git fetch origin
-          git checkout -b build-output || git checkout build-output
+          git checkout -b build-output
 
       - name: Clean the build-output branch
         run: |
@@ -44,6 +43,10 @@ jobs:
 
       - name: Commit and Push Build to the build-output branch
         run: |
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git checkout -b build-output
+          mv output/* .
           git add .
-          git commit -m "Deploy Blazor build"
+          git commit -m "Deploy built Blazor app"
           git push origin build-output --force
