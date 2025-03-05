@@ -49,6 +49,9 @@ jobs:
           touch _nojekyll  # Creates an empty _nojekyll file in the root of the repo
           ls -la  # Debugging:
 
+      - name: Debug File Structure
+        run: ls -R
+
       - name: Commit and Push Build to the build-output branch
         run: |
           git config --global user.email "github-actions@github.com"
