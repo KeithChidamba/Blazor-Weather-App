@@ -49,7 +49,7 @@ jobs:
 
       - name: Copy build files to the branch
         run: |
-          cp -r output/* .
+          cp -r output/wwwroot/* .
 
       - name: Commit and Push Build to the build-output branch
         run: |
