@@ -3,7 +3,7 @@ name: Build and Deploy Blazor App
 on:
   push:
     branches:
-      - '*'  # Change to your development branch if needed
+      - Developement  # Change to your development branch if needed
   pull_request:
     branches:
       - main
@@ -37,7 +37,7 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git checkout -B blazor-build  # Change branch name if needed
-          rm -rf wwwroot  # Optional: Clean old files
+          rm -rf .  # Optional: Clean old files
           mv output/wwwroot wwwroot
           git add wwwroot
           git commit -m "Auto-commit: Blazor build output"
