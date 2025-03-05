@@ -54,7 +54,7 @@ jobs:
         run: |
           git rm -rf "Blazor Weather App"
           git rm -rf "output"
+          touch _nojekyll 
           git commit -m "Delete dummy output"
-          touch ./_nojekyll 
           git push origin WeatherBuild --force
 
