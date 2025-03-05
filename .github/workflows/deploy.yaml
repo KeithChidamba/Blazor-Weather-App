@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - Developement  # Change to your development branch if needed
-  pull_request:
-    branches:
-      - main
 
 env:
   GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
