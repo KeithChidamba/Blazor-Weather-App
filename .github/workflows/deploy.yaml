@@ -28,7 +28,7 @@ jobs:
         run: dotnet restore
 
       - name: Build Blazor App
-        run: dotnet publish -c Release -o output./wwwroot/*  # Ensure it's published to the './publish' folder
+        run: dotnet publish -c Release -o output  # Ensure it's published to the './publish' folder
 
       - name: Checkout or Create WeatherBuild Branch
         run: |
@@ -39,6 +39,10 @@ jobs:
         run: |
           git rm -rf .
 
+      - name: Copy build files to the branch
+        run: |
+          cp -r output/wwwroot/* .
+
       - name: Commit and Push Build to the build-output branch
         run: |
           git config --global user.email "github-actions@github.com"
@@ -46,3 +50,7 @@ jobs:
           git add .
           git commit -m "Deploy built Blazor app"
           git push origin WeatherBuild --force
+          
+      - name: Clean up and show build files only
+        run: |
+          git rm -rf ./Blazor Weather App
