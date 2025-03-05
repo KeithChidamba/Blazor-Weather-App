@@ -10,32 +10,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: List the directory structure
-        run: |
-          ls -R /home/runner/work/Blazor-Weather-App/Blazor-Weather-App/Blazor-Weather-App
       - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '8.0.x'  # Adjust based on your project
+          dotnet-version: '8.0.x'
 
       - name: Restore Dependencies
         run: dotnet restore
-        working-directory: ""  # Change this to your actual project folder
+        working-directory: ./Blazor-Weather-App  # This is your repo folder
 
       - name: Build Blazor App
         run: dotnet publish -c Release -o output
-        working-directory: ""  # Change this too
+        working-directory: ./Blazor-Weather-App  # Same here
 
       - name: Commit and Push Build to Branch
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout -B main  # Change branch name if needed
+          git checkout -B blazor-build  # Change branch name if needed
           rm -rf wwwroot  # Optional: Clean old files
-          mv Blazor-Weather-App/output/wwwroot wwwroot  # Adjust path
+          mv ./Blazor-Weather-App/output/wwwroot wwwroot  # Adjust path if necessary
           git add wwwroot
           git commit -m "Auto-commit: Blazor build output"
           git push origin blazor-build --force
