@@ -30,13 +30,10 @@ jobs:
       - name: Build Blazor App
         run: dotnet publish -c Release -o output  # Ensure it's published to the './publish' folder
 
-      - name: Copy _nojekyll to publish directory
+      - name: Create _nojekyll file
         run: |
-          if [ -f "./nojekyll" ]; then
-            cp ./nojekyll ./publish/  # Copy _nojekyll to the publish directory
-          else
-            echo "_nojekyll file not found"
-          fi
+          echo "Creating _nojekyll file"
+          touch ./output/_nojekyll 
 
       - name: Checkout or Create WeatherBuild Branch
         run: |
