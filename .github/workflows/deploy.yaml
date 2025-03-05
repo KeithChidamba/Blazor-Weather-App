@@ -33,7 +33,7 @@ jobs:
           git clean -fd  # Remove untracked files
 
       - name: Build Blazor App
-        run: dotnet publish -c Release -o ./  # Ensure it's published to the './publish' folder
+        run: dotnet publish -c Release -o output  # Ensure it's published to the './publish' folder
 
       - name: Checkout or Create WeatherBuild Branch
         run: |
