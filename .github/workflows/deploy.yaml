@@ -31,7 +31,7 @@ jobs:
 
       - name: Checkout
         run: |
-          git checkout -b build-output
+          git checkout -b build-output || git checkout build-output
 
       - name: Clean the build-output branch
         run: |
