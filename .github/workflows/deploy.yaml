@@ -27,11 +27,6 @@ jobs:
       - name: Restore Dependencies
         run: dotnet restore
 
-      - name: Clean the branch (remove non-build files)
-        run: |
-          git rm -rf .  # Remove all files in the branch
-          git clean -fd  # Remove untracked files
-
       - name: Build Blazor App
         run: dotnet publish -c Release -o output  # Ensure it's published to the './publish' folder
 
@@ -39,11 +34,6 @@ jobs:
         run: |
           git fetch origin
           git checkout WeatherBuild || git checkout -b WeatherBuild
-
-      - name: Clean the branch (remove non-build files)
-        run: |
-          git rm -rf .  # Remove all files in the branch
-          git clean -fd  # Remove untracked files
 
       - name: Commit and Push Build to the build-output branch
         run: |
