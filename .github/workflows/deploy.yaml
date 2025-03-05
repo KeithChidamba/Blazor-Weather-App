@@ -51,6 +51,3 @@ jobs:
           git commit -m "Deploy built Blazor app"
           git push origin WeatherBuild --force
             - name: Clean Up Unwanted Files
-      - name: Copy build files to the branch
-        run: |
-              rm -rf bin obj
