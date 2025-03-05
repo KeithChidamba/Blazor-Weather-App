@@ -32,8 +32,8 @@ jobs:
 
       - name: Copy _nojekyll to publish directory
         run: |
-          if [ -f "./_nojekyll" ]; then
-            cp ./_nojekyll ./publish/  # Copy _nojekyll to the publish directory
+          if [ -f "./nojekyll" ]; then
+            cp ./nojekyll ./publish/  # Copy _nojekyll to the publish directory
           else
             echo "_nojekyll file not found"
           fi
