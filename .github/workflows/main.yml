@@ -20,11 +20,11 @@ jobs:
 
       - name: Restore Dependencies
         run: dotnet restore
-        working-directory: ./Blazor-Weather-App  # This is your repo folder
+        working-directory: ./  # This is your repo folder
 
       - name: Build Blazor App
         run: dotnet publish -c Release -o output
-        working-directory: ./Blazor-Weather-App  # Same here
+        working-directory: ./  # Same here
 
       - name: Commit and Push Build to Branch
         run: |
