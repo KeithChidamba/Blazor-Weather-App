@@ -35,6 +35,10 @@ jobs:
           git fetch origin
           git checkout WeatherBuild || git checkout -b WeatherBuild
 
+      - name: Clean the build-output branch
+        run: |
+          git rm -rf .
+
       - name: Commit and Push Build to the build-output branch
         run: |
           git config --global user.email "github-actions@github.com"
