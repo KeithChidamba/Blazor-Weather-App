@@ -61,5 +61,6 @@ jobs:
       - name: Clean up and show build files only
         run: |
           git rm -rf "Blazor Weather App"
+          git rm -rf "output"
           git commit -m "Delete dummy output"
           git push origin WeatherBuild --force
