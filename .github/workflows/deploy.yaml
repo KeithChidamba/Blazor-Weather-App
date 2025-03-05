@@ -46,7 +46,7 @@ jobs:
       - name: Create _nojekyll file in root
         run: |
           echo "Creating _nojekyll file in root"
-          touch _nojekyll  # Creates an empty _nojekyll file in the root of the repo
+          touch .nojekyll  # Creates an empty _nojekyll file in the root of the repo
           ls -la  # Debugging:
 
       - name: Debug File Structure
