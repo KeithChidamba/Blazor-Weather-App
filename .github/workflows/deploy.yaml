@@ -45,7 +45,6 @@ jobs:
         run: |
           git config --global user.email "github-actions@github.com"
           git config --global user.name "GitHub Actions"
-          git checkout -b build-output
           mv output/* .
           git add .
           git commit -m "Deploy built Blazor app"
