@@ -56,7 +56,7 @@ jobs:
           git rm -rf "output"
           git commit -m "Delete dummy output"
           git push origin WeatherBuild --force
-            - name: Create _nojekyll file
+
       - name: Remove Jekyll 
         run: |
           echo "Creating _nojekyll file"
