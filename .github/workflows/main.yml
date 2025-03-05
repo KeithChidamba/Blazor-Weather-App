@@ -15,22 +15,15 @@ jobs:
 
       - name: List root directory
         run: ls -R /home/runner/work/Blazor-Weather-App/Blazor-Weather-App
-        # List all files and directories recursively in the root of the repo
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '8.0.x'
-
-      - name: List after setup
-        run: ls -R  # This lists the directory after the .NET setup
-
+        
       - name: Restore Dependencies
         run: dotnet restore
-        working-directory: .  # Change based on your repo structure
-
-      - name: List after restore
-        run: ls -R ./  # List files inside the project folder
+        working-directory: /home/runner/work/Blazor-Weather-App/Blazor-Weather-App  # Change based on your repo structure
 
       - name: Build Blazor App
         run: dotnet publish -c Release -o output
