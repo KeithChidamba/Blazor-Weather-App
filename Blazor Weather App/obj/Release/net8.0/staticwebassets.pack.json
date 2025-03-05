@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\Blazor Weather App.styles.css"
     },
     {
+      "Id": "C:\\Users\\kidak\\RiderProjects\\Blazor-Weather-App\\Blazor Weather App\\wwwroot\\.nojekyll",
+      "PackagePath": "staticwebassets\\.nojekyll"
+    },
+    {
       "Id": "C:\\Users\\kidak\\RiderProjects\\Blazor-Weather-App\\Blazor Weather App\\wwwroot\\css\\app.css",
       "PackagePath": "staticwebassets\\css\\app.css"
     },
@@ -39,10 +43,6 @@
     {
       "Id": "C:\\Users\\kidak\\RiderProjects\\Blazor-Weather-App\\Blazor Weather App\\wwwroot\\js\\Location.js",
       "PackagePath": "staticwebassets\\js\\Location.js"
-    },
-    {
-      "Id": "C:\\Users\\kidak\\RiderProjects\\Blazor-Weather-App\\Blazor Weather App\\wwwroot\\sample-data\\weather.json",
-      "PackagePath": "staticwebassets\\sample-data\\weather.json"
     },
     {
       "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.Blazor Weather App.Microsoft.AspNetCore.StaticWebAssets.props",
