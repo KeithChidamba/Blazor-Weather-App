@@ -28,7 +28,7 @@ jobs:
         run: dotnet restore
 
       - name: Build Blazor App
-        run: dotnet publish -c Release -o ./publish  # Ensure it's published to the './publish' folder
+        run: dotnet publish -c Release -o ./  # Ensure it's published to the './publish' folder
 
       - name: List files in publish directory for debugging
         run: |
@@ -44,11 +44,6 @@ jobs:
         run: |
           git rm -rf .  # Remove all files in the branch
           git clean -fd  # Remove untracked files
-
-      - name: Copy build files to the root
-        run: |
-          echo "Copying build files"
-          cp -r ./publish/* . 
 
       - name: Commit and Push Build to the build-output branch
         run: |
