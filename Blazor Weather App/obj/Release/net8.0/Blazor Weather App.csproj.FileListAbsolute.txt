@@ -1030,3 +1030,4 @@ C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\obj\Release\n
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\obj\Release\net8.0\refint\Blazor Weather App.dll
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\obj\Release\net8.0\Blazor Weather App.pdb
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\obj\Release\net8.0\ref\Blazor Weather App.dll
+C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\obj\Release\net8.0\scopedcss\Pages\WeatherInfo.razor.rz.scp.css

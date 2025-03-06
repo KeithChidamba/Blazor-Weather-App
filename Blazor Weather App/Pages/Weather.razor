@@ -5,24 +5,15 @@
 
 <PageTitle>Weather</PageTitle>
 <div class="container">
-    <h1>Weather App</h1>
     <div class="form-container">
         <input placeholder="Enter City Name"  @bind-value="EnteredCityName"/>
         <button class="SearchButton" @onclick="OnButtonClick" disabled="@isRunning">Get Weather</button>
     </div>
+    <button class="SearchButton" @onclick="GetLocation" disabled="@isRunning">Get my Location's Weather</button>
        <h1>@DisplayMessage</h1>
 </div>
 @if (isRunning) { <ProgressBar Value="@progressValue"></ProgressBar> }
-<div>
-    <br/>
-    <p>Description: @CurrentWeatherForeCast?.weather?[0].description</p>
-    <ul>
-        <li>Temp: @CurrentWeatherForeCast?.main.temp</li>
-        <li>Humidity: @CurrentWeatherForeCast?.main.humidity</li>
-        <li>Wind speed: @CurrentWeatherForeCast?.wind.speed</li>
-        <li>Sea level: @CurrentWeatherForeCast?.main.sea_level</li>
-    </ul>
-</div>
+<WeatherInfo WeatherHandler="@this"></WeatherInfo>
 
 @code {
     private double Latitude { get; set; }
@@ -33,10 +24,10 @@
     private string? DisplayMessage;
     private string? LocationCityName;
     private string? EnteredCityName = string.Empty;
-    private static Root? CurrentWeatherForeCast;
     private bool isRunning = false;
     private int progressValue = 0;
-    private string LocationInfo;
+    private string? LocationInfo;
+    public event EventHandler<WeatherInfoModel.Root> OnWeatherLoaded;
     private async Task OnButtonClick()
     {
         isRunning = true;
@@ -51,7 +42,8 @@
         progress.Report(65);
         await Task.Delay(300);
         var json = await response.Content.ReadAsStringAsync();
-        CurrentWeatherForeCast = JsonSerializer.Deserialize<Root>(json);
+        WeatherInfoModel.Root? CurrentWeatherForeCast = JsonSerializer.Deserialize<WeatherInfoModel.Root>(json);
+        OnWeatherLoaded?.Invoke(this,CurrentWeatherForeCast);
         DisplayMessage = "Weather summary for: " + CityName;
         progress.Report(100);
         await Task.Delay(500);
@@ -109,78 +101,6 @@
     }
     protected override void OnInitialized()
     {
-        DisplayMessage = "Please input the location you wish to receive weather conditions for...";
-        GetLocation();
-    }
-    private class NominatimResponse
-    {
-        public Address? address { get; set; }
-    }
-    private class Address
-    {
-        public string? city { get; set; }
-    }
-    public class coord
-    {
-    public double lon { get; set; }
-    public double lat { get; set; }
-    }
-
-    public class weather
-    {
-    public int id { get; set; }
-    public string main { get; set; }
-    public string description { get; set; }
-    public string icon { get; set; }
-    }
-
-    public class main
-    {
-    public double temp { get; set; }
-    public double feels_like { get; set; }
-    public double temp_min { get; set; }
-    public double temp_max { get; set; }
-    public int pressure { get; set; }
-    public int humidity { get; set; }
-    public int sea_level { get; set; }
-    public int grnd_level { get; set; }
-    }
-
-    public class wind
-    {
-    public double speed { get; set; }
-    public int deg { get; set; }
-    public double gust { get; set; }
-    }
-
-    public class clouds
-    {
-    public int all { get; set; }
-    }
-
-    public class sys
-    {
-    public int type { get; set; }
-    public int id { get; set; }
-    public string country { get; set; }
-    public long sunrise { get; set; }
-    public long sunset { get; set; }
-    }
-
-    public class Root
-    {
-    public coord coord { get; set; }
-    public List<weather> weather { get; set; }
-    public string @base { get; set; }
-    public main main { get; set; }
-    public int visibility { get; set; }
-    public wind wind { get; set; }
-    public clouds clouds { get; set; }
-    public long dt { get; set; }
-    public sys sys { get; set; }
-    public int timezone { get; set; }
-    public int id { get; set; }
-    public string name { get; set; }
-    public int cod { get; set; }
+        DisplayMessage = "Welcome, what would you like to see";
     }
     }

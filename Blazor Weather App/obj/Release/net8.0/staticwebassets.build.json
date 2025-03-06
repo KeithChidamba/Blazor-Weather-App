@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "v0l7O072DcjC6aE0rVJm9gB3QAthVoQ9wae2mzN8oxY=",
+  "Hash": "Sn2xDnurJRFcSShEer5lsog/XtxsmHjQSRdN5Pq6oR4=",
   "Source": "Blazor Weather App",
   "BasePath": "/",
   "Mode": "Root",
@@ -7807,12 +7807,12 @@
       "OriginalItemSpec": "C:\\Users\\kidak\\RiderProjects\\Blazor-Weather-App\\Blazor Weather App\\obj\\Release\\net8.0\\scopedcss\\projectbundle\\Blazor Weather App.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\kidak\\RiderProjects\\Blazor-Weather-App\\Blazor Weather App\\wwwroot\\.nojekyll",
+      "Identity": "C:\\Users\\kidak\\RiderProjects\\Blazor-Weather-App\\Blazor Weather App\\wwwroot\\Assets\\menu icon.png",
       "SourceId": "Blazor Weather App",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\kidak\\RiderProjects\\Blazor-Weather-App\\Blazor Weather App\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": ".nojekyll",
+      "RelativePath": "Assets/menu icon.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -7823,7 +7823,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\.nojekyll"
+      "OriginalItemSpec": "wwwroot\\Assets\\menu icon.png"
     },
     {
       "Identity": "C:\\Users\\kidak\\RiderProjects\\Blazor-Weather-App\\Blazor Weather App\\wwwroot\\css\\app.css",
