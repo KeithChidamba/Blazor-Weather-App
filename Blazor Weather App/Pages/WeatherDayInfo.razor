@@ -1,6 +1,4 @@
-  @if(DataLoaded)
-  {
-      <p>Description: @description</p>
+<p>Description: @CurrentWeatherData.description</p>
       <ul>
           <li>Temp: @CurrentTemperature @TemperatureSymbol
               <div class="dropdown">
@@ -20,45 +18,44 @@
               </div>
           </li>
       </ul>
-  }
 @code {
-    [Parameter] public WeatherForecastModel.WeatherForecast? WeatherInfoForDay { get; set; }
+    [Parameter] public WeatherInfo WeatherInfoHandler { get; set; }
     public string? TemperatureSymbol = "\u00b0C";
     public string? SpeedSymbol = "Km/h";
-    public string description;
+    [Parameter] public WeatherInfoForDay CurrentWeatherData{ get; set; }
     public float CurrentTemperature;
     public float CurrentWindSpeed;
     public double humidity;
-    public bool DataLoaded = false;
-    public void LoadInfo(string _description, float _CurrentTemperature, float _CurrentWindSpeed, double _humidity)
+    
+    protected override void OnInitialized()
     {
-        Console.WriteLine("here");
-         description = _description;
-         CurrentTemperature = _CurrentTemperature;
-         CurrentWindSpeed = _CurrentWindSpeed;
-         humidity = _humidity;
+        WeatherInfoHandler.OnNewDay += LoadInfo;
+    }
+    public void LoadInfo()
+    {
+        WeatherInfoHandler.OnNewDay -= LoadInfo;
          Show_kmh();
          ShowCelsius();
-         DataLoaded = true;
+         StateHasChanged();
     }
     public void Show_kmh()
     {
-        CurrentWindSpeed = WeatherInfoForDay.Wind.Speed;
+        CurrentWindSpeed = CurrentWeatherData.WindSpeedData;
         SpeedSymbol = "Km/h";
     }
     public void Show_mph()
     {
-        CurrentWindSpeed = (float)Math.Round(WeatherInfoForDay.Wind.Speed * 0.621371f,4);
+        CurrentWindSpeed = (float)Math.Round(CurrentWeatherData.WindSpeedData * 0.621371f,4);
         SpeedSymbol = "m/h";
     }
     public void ShowFahrenheit()
     {
-        CurrentTemperature = (float)Math.Round(WeatherInfoForDay.Main.Temp * (9f / 5) , 2) + 32;
+        CurrentTemperature = (float)Math.Round(CurrentWeatherData.TemperatureData * (9f / 5) , 2) + 32;
         TemperatureSymbol = "\u00b0F";
     }
     public void ShowCelsius()
     {
-        CurrentTemperature = WeatherInfoForDay.Main.Temp;
+        CurrentTemperature = CurrentWeatherData.TemperatureData;
         TemperatureSymbol = "\u00b0C";
     }
 }

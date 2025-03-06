@@ -1,18 +1,34 @@
 <div>
-    @if (@isForecast)
-        @foreach (var day in ForecastDaysInfo)
-        {
-            <li>
-                @day
-            </li>
-        }
-    @CurrentWeatherOnly
+    @if (LoadedData)
+    {
+        <WeatherDayInfo WeatherInfoHandler="this" CurrentWeatherData="@CurrentWeatherDay"></WeatherDayInfo>
+        <div>
+            <button  @onclick="NextDay" disabled="@isMax">Next</button>
+            <button  @onclick="PrevDay" disabled="@isMin">Previous</button>
+        </div>
+    }
 </div>
 @code {
     [Parameter] public Weather WeatherHandler { get; set; }
-    private WeatherDayInfo CurrentWeatherOnly;
-    private List<WeatherDayInfo> ForecastDaysInfo;
+    private WeatherInfoForDay CurrentWeatherDay;
+    private List<WeatherInfoForDay> ForecastDaysInfo;
     bool isForecast = false;
+    bool isMax = false;
+    bool isMin = false;
+    bool LoadedData = false;
+    public event Action OnNewDay;
+    private void NextDay()
+    {
+        isMax = (ForecastDaysInfo.IndexOf(CurrentWeatherDay)+1 >= ForecastDaysInfo.Count);
+        CurrentWeatherDay = ForecastDaysInfo[ForecastDaysInfo.IndexOf(CurrentWeatherDay) + 1];
+        StateHasChanged();
+    }
+    private void PrevDay()
+    {
+        isMin = (ForecastDaysInfo.IndexOf(CurrentWeatherDay)-1 <= ForecastDaysInfo.Count);
+        CurrentWeatherDay = ForecastDaysInfo[ForecastDaysInfo.IndexOf(CurrentWeatherDay) - 1];
+        StateHasChanged();
+    }
     protected override void OnInitialized()
     {
         WeatherHandler.OnWeatherLoaded += LoadWeatherInfo;
@@ -21,18 +37,19 @@
     public void LoadWeatherInfo(WeatherInfoModel.Root data)
     {
         isForecast = false;
-        CurrentWeatherOnly.LoadInfo(data.weather[0].description,(float)data.main.temp,(float)data.wind.speed,data.main.humidity);
+        CurrentWeatherDay = new WeatherInfoForDay(data.weather[0].description, (float)data.main.temp, (float)data.wind.speed, data.main.humidity);
+        OnNewDay.Invoke();
+        LoadedData = true;
     }
     public void LoadForecastInfo(List<WeatherForecastModel.WeatherForecast> data)
     {
         foreach (WeatherForecastModel.WeatherForecast DataForDay in data)
         {
-            WeatherDayInfo day = new WeatherDayInfo();
-            day.WeatherInfoForDay = DataForDay;
-            day.LoadInfo(DataForDay.Weather[0].Description,DataForDay.Main.Temp,DataForDay.Wind.Speed,DataForDay.Main.Humidity);
+            WeatherInfoForDay day = new WeatherInfoForDay(DataForDay.Weather[0].Description,DataForDay.Main.Temp,DataForDay.Wind.Speed,DataForDay.Main.Humidity);
             ForecastDaysInfo.Add(day);
         }
         isForecast = true;
+        LoadedData = true;
         StateHasChanged();
     }
 

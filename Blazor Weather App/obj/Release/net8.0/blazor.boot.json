@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "Blazor Weather App",
   "resources": {
-    "hash": "sha256-OgMK7gsleILM9FXT5xNlzlLRWQHONDqPgrxaPBjAW64=",
+    "hash": "sha256-5OlsZcUV0cYhPMn3zJzC5HFwg2VZw9p4AaLhhpnmULk=",
     "jsModuleNative": {
       "dotnet.native.8.0.5.2ig78hxydh.js": "sha256-boyHe+0RMZDkzBKGhsrnXPhPg3oZ6UqJnTUzngJPjNY="
     },
@@ -208,10 +208,10 @@
       "mscorlib.wasm": "sha256-XvLAB5IyfVSmj5aaGnPwgVFaaZz8jXmbN8WmeopiPBM=",
       "netstandard.wasm": "sha256-TbMssdnuTiKq1gjTPkpgROAuWN0uhvPnagvWR+wAgNs=",
       "System.Private.CoreLib.wasm": "sha256-sscg+Efk8ROPq+q4IVmhShzITuoOYvB8Bsc+Mp9vcSM=",
-      "Blazor Weather App.wasm": "sha256-fKaVsUvnH8cMwrN/xWg3NaIj/yfWVioUHMnzlgJwPQg="
+      "Blazor Weather App.wasm": "sha256-22dNJ1sWAPDjEuJdjcGJMNxujjP24HsZGG5Fk/w7Lzc="
     },
     "pdb": {
-      "Blazor Weather App.pdb": "sha256-nppPYLPDX1VbnCQ2KpD4Yc9YIb+AYG1oXhtEGRgIp6o="
+      "Blazor Weather App.pdb": "sha256-DippF4niQ9mhO5mUWxMzCwn4ha6vhGPOI710SLpI1Rw="
     }
   },
   "debugLevel": 0,
