@@ -1,61 +1,39 @@
 <div>
-    <br/>
-    <p>Description: @CurrentWeatherInfo?.weather?[0].description</p>
-    <ul>
-        <li>Temp: @CurrentTemperature @TemperatureSymbol
-            <div class="dropdown">
-                <div class="dropdown-content">
-                    <button @onclick="ShowFahrenheit">Fahrenheit</button>
-                    <button @onclick="ShowCelsius">Celsius</button>
-                </div>
-            </div>
-        </li>
-        <li>Humidity: @CurrentWeatherInfo?.main.humidity</li>
-        <li>Wind speed: @CurrentWindSpeed @SpeedSymbol
-            <div class="dropdown">
-                <div class="dropdown-content">
-                    <button @onclick="Show_kmh">Km/h</button>
-                    <button @onclick="Show_mph">mph</button>
-                </div>
-            </div>
+    @if (@isForecast)
+        @foreach (var day in ForecastDaysInfo)
+        {
+            <li>
+                @day
             </li>
-    </ul>
+        }
+    @CurrentWeatherOnly
 </div>
 @code {
     [Parameter] public Weather WeatherHandler { get; set; }
-    private WeatherInfoModel.Root? CurrentWeatherInfo;
-    private string? TemperatureSymbol = "\u00b0C";
-    private string? SpeedSymbol = "Km/h";
-    private double CurrentTemperature;
-    private double CurrentWindSpeed;
+    private WeatherDayInfo CurrentWeatherOnly;
+    private List<WeatherDayInfo> ForecastDaysInfo;
+    bool isForecast = false;
     protected override void OnInitialized()
     {
         WeatherHandler.OnWeatherLoaded += LoadWeatherInfo;
+        WeatherHandler.OnForecastLoaded += LoadForecastInfo;
     }
-    private void LoadWeatherInfo(object sender,WeatherInfoModel.Root data)
+    public void LoadWeatherInfo(WeatherInfoModel.Root data)
     {
-        CurrentWeatherInfo = data;
-        Show_kmh();
-        ShowCelsius();
+        isForecast = false;
+        CurrentWeatherOnly.LoadInfo(data.weather[0].description,(float)data.main.temp,(float)data.wind.speed,data.main.humidity);
     }
-    private void Show_kmh()
+    public void LoadForecastInfo(List<WeatherForecastModel.WeatherForecast> data)
     {
-        CurrentWindSpeed = CurrentWeatherInfo.wind.speed;
-        SpeedSymbol = "Km/h";
+        foreach (WeatherForecastModel.WeatherForecast DataForDay in data)
+        {
+            WeatherDayInfo day = new WeatherDayInfo();
+            day.WeatherInfoForDay = DataForDay;
+            day.LoadInfo(DataForDay.Weather[0].Description,DataForDay.Main.Temp,DataForDay.Wind.Speed,DataForDay.Main.Humidity);
+            ForecastDaysInfo.Add(day);
+        }
+        isForecast = true;
+        StateHasChanged();
     }
-    private void Show_mph()
-    {
-        CurrentWindSpeed = Math.Round(CurrentWeatherInfo.wind.speed * 0.621371f,4);
-        SpeedSymbol = "m/h";
-    }
-    private void ShowFahrenheit()
-    {
-        CurrentTemperature = Math.Round(CurrentWeatherInfo.main.temp * (9f / 5) , 2) + 32;
-        TemperatureSymbol = "\u00b0F";
-    }
-    private void ShowCelsius()
-    {
-        CurrentTemperature = CurrentWeatherInfo.main.temp;
-        TemperatureSymbol = "\u00b0C";
-    }
+
 }
