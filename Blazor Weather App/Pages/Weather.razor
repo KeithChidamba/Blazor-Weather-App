@@ -15,23 +15,28 @@
         <input placeholder="number of days for forecast" disabled="@AreaNotLoaded"  @bind-value="ForecastDaysAmount"/>
         <button class="SearchButton" @onclick="GetForeCast" disabled="@AreaNotLoaded">Get Forecast</button>
     </div>
-    <!--<button class="SearchButton" @onclick="GetWeatherAlerts" disabled="@AreaNotLoaded">Get Weather Alerts</button>-->
+    <button class="SearchButton" @onclick="GetAlertsForCity" disabled="@AreaNotLoaded">Get Weather Alerts</button>
     <button class="SearchButton" @onclick="GetCityNameLocation" disabled="@isRunning">Get my Location's Weather</button>
-       <h1>@DisplayMessage</h1>
+    <h1>@DisplayMessage</h1>
+    @if(WeatherAlertMessage!=string.Empty)
+        {<h1>Weather Warning: @WeatherAlertMessage</h1>}
 </div>
 @if (isRunning) { <ProgressBar Value="@progressValue"></ProgressBar> }
 <WeatherInfo WeatherHandler="@this"></WeatherInfo>
 
 @code {
 
-    private double Latitude { get; set; }
-    private double Longitude { get; set; }
+    private float Latitude { get; set; }
+    private float Longitude { get; set; }
     private DotNetObjectReference<Weather>? dotNetHelper;
-    private static readonly string apiKey = "9ccbafa11739fe75b7bbcb29da052335";
+    private static readonly string OpenWeatherApiKey = "9ccbafa11739fe75b7bbcb29da052335";
+    private static readonly string GeoNamesUsername = "kidakwashe14";
+    private static readonly string WeatherApiKey = "5c81db43eed2421ca1f84712250703";
     private static readonly string baseUrl = "https://api.openweathermap.org/data/2.5/weather";
     private string? DisplayMessage;
-    private string? LocationCityName = string.Empty;
+    private string? WeatherAlertMessage = string.Empty;
     private string? EnteredCityName = string.Empty;
+    private string? CityName = string.Empty;
     private bool isRunning = false;
     private bool AreaNotLoaded = true;
     private int progressValue = 0;
@@ -41,12 +46,19 @@
     private async Task GetCityWeather()
     {
         isRunning = true;
-        await LoadWeatherForArea(EnteredCityName,InitProgress());
+        CityName = EnteredCityName;
+        await LoadWeatherForArea(CityName,InitProgress());
+        await Task.Run(()=>GetCoordsOfCity());
     }
     private async Task GetCityNameLocation()
     {
         isRunning = true;
         await GetCityName();
+    }
+
+    private async Task GetAlertsForCity()
+    {
+       await GetWeatherAlerts(CityName);
     }
     public async Task<HttpResponseMessage> CallApi(string url)
     {
@@ -62,7 +74,7 @@
     }
     public async Task LoadWeatherForArea(string CityName,IProgress<int> progress)
     {
-        HttpResponseMessage response = await CallApi($"https://api.openweathermap.org/data/2.5/weather?q={CityName}&appid={@apiKey}&units=metric");
+        HttpResponseMessage response = await CallApi($"https://api.openweathermap.org/data/2.5/weather?q={CityName}&appid={OpenWeatherApiKey}&units=metric");
         progress.Report(65);
         await Task.Delay(300);
         var json = await response.Content.ReadAsStringAsync();
@@ -89,9 +101,10 @@
         var progress = InitProgress();
         string apiUrl = $"https://nominatim.openstreetmap.org/reverse?format=json&lat={Latitude}&lon={Longitude}&zoom=10&addressdetails=1";
         var LocationInfo = await Task.Run(() => ProcessRequest(apiUrl,progress));
+        Console.WriteLine(LocationInfo);
         string CountyName = JsonDocument.Parse(LocationInfo).RootElement.GetProperty("address").GetProperty("county").ToString();
-        LocationCityName = CountyName.Replace("City of ", "");
-        await Task.Run(() =>  LoadWeatherForArea(LocationCityName,progress));
+        CityName = CountyName.Replace("City of ", "");
+        await Task.Run(() =>  LoadWeatherForArea(CityName,progress));
         StateHasChanged();
     }
 
@@ -111,21 +124,37 @@
     public async Task GetForeCast()
     {
         var progress = InitProgress();
-        string apiUrl = $"https://api.openweathermap.org/data/2.5/forecast?lat={Latitude}&lon={Longitude}&cnt={ForecastDaysAmount}&appid={apiKey}";
+        string apiUrl = $"https://api.openweathermap.org/data/2.5/forecast?lat={Latitude}&lon={Longitude}&cnt={ForecastDaysAmount}&appid={OpenWeatherApiKey}";
         var ForecastInfo = await Task.Run(() => ProcessRequest(apiUrl,progress));
         WeatherForecastModel.WeatherData? rootData = JsonConvert.DeserializeObject<WeatherForecastModel.WeatherData>(ForecastInfo);
         List<WeatherForecastModel.WeatherForecast>? ForecastData = rootData.List;
         OnForecastLoaded?.Invoke(ForecastData);
     }
-    /*public async Task GetWeatherAlerts()
+    public async Task GetWeatherAlerts(string CityName)
     {
-        HttpResponseMessage response = await CallApi($"https://api.openweathermap.org/data/3.0/onecall?lat={Latitude}&lon={Longitude}&exclude=current,minutely,hourly,daily&appid={apiKey}");
-    }*/
+        HttpResponseMessage response = await CallApi($"https://api.weatherapi.com/v1/alerts.json?key={WeatherApiKey}&q={CityName}");
+        var jsonData = await response.Content.ReadAsStringAsync();
+        var Alert = JsonDocument.Parse(jsonData).RootElement.GetProperty("alerts").GetProperty("alert");
+        if (Alert.GetArrayLength() == 0)
+        {
+            WeatherAlertMessage = string.Empty;
+            return;
+        }
+        WeatherAlertMessage = Alert[0].GetProperty("description").ToString();
+    }
     [JSInvokable]
-    public void ReceiveLocation(double latitude, double longitude)
+    public void ReceiveLocation(float latitude, float longitude)
     {
         Latitude = latitude;
         Longitude = longitude;
+    }
+
+    public async Task GetCoordsOfCity()
+    {
+        HttpResponseMessage response = await CallApi($"https://geocoding-api.open-meteo.com/v1/search?name={CityName}&count=1");
+        var jsonData = await response.Content.ReadAsStringAsync();
+        Latitude = float.Parse(JsonDocument.Parse(jsonData).RootElement.GetProperty("results")[0].GetProperty("latitude").ToString());
+        Longitude = float.Parse(JsonDocument.Parse(jsonData).RootElement.GetProperty("results")[0].GetProperty("longitude").ToString());;
     }
     protected override void OnInitialized()
     {
