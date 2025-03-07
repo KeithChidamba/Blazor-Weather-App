@@ -8,7 +8,7 @@
                   </div>
               </div>
           </li>
-          <li>Humidity: @humidity</li>
+          <li>Humidity: @CurrentWeatherData.HumidityData @HumiditySymbol</li>
           <li>Wind speed: @CurrentWindSpeed @SpeedSymbol
               <div class="dropdown">
                   <div class="dropdown-content">
@@ -19,13 +19,13 @@
           </li>
       </ul>
 @code {
-    [Parameter] public WeatherInfo WeatherInfoHandler { get; set; }
-    public string? TemperatureSymbol = "\u00b0C";
-    public string? SpeedSymbol = "Km/h";
-    [Parameter] public WeatherInfoForDay CurrentWeatherData{ get; set; }
-    public float CurrentTemperature;
-    public float CurrentWindSpeed;
-    public double humidity;
+    [Parameter] public WeatherInfo? WeatherInfoHandler { get; set; }
+    private string? TemperatureSymbol = "\u00b0C";
+    private string? SpeedSymbol = "Km/h";
+    private WeatherInfoForDay? CurrentWeatherData;
+    private float CurrentTemperature;
+    private float CurrentWindSpeed;
+    private string? HumiditySymbol = "g/m\u00b3";
     
     protected override void OnInitialized()
     {
@@ -33,10 +33,10 @@
     }
     public void LoadInfo()
     {
-        WeatherInfoHandler.OnNewDay -= LoadInfo;
-         Show_kmh();
-         ShowCelsius();
-         StateHasChanged();
+        CurrentWeatherData = WeatherInfoHandler?.CurrentWeatherDay;
+        Show_kmh();
+        ShowCelsius();
+        StateHasChanged();
     }
     public void Show_kmh()
     {

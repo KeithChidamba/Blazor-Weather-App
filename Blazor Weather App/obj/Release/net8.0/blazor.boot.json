@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "Blazor Weather App",
   "resources": {
-    "hash": "sha256-5OlsZcUV0cYhPMn3zJzC5HFwg2VZw9p4AaLhhpnmULk=",
+    "hash": "sha256-g+yhXJjogm/T8eViUzw9bYe50KJrEwYslUhbangfO5Y=",
     "jsModuleNative": {
       "dotnet.native.8.0.5.2ig78hxydh.js": "sha256-boyHe+0RMZDkzBKGhsrnXPhPg3oZ6UqJnTUzngJPjNY="
     },
@@ -39,6 +39,7 @@
       "Microsoft.Extensions.Primitives.wasm": "sha256-pVrYOTfjb2ITls3LKIByW1t8jwOAWFhmkIVDewtJ1GE=",
       "Microsoft.JSInterop.wasm": "sha256-Mc8kHWq7V5l58xzTOXmPiDoCXg3n1SO7zLVUS4Mov/I=",
       "Microsoft.JSInterop.WebAssembly.wasm": "sha256-mHBj908L0vpzL6sgaJuWDGhOHidz54+ao9EhBpC41nQ=",
+      "Newtonsoft.Json.wasm": "sha256-GlXMWKvDs45M2pACoR3Y4Qh8mcrOZGljqmvJY+6JZ5s=",
       "System.IO.Pipelines.wasm": "sha256-JqVBy6SV+3qk+IK3VJiyIDt9CsVk6b1/ytTXmrI4mTM=",
       "Microsoft.CSharp.wasm": "sha256-Z4zsusVqLRP0B8U6P/Q+sxj66wh1w/ZB6L7NH21zRW4=",
       "Microsoft.VisualBasic.Core.wasm": "sha256-MUHhT6I1oajsWuOKZ1MuTXbmvFmFsHSS77lxAW6TOXU=",
@@ -208,10 +209,10 @@
       "mscorlib.wasm": "sha256-XvLAB5IyfVSmj5aaGnPwgVFaaZz8jXmbN8WmeopiPBM=",
       "netstandard.wasm": "sha256-TbMssdnuTiKq1gjTPkpgROAuWN0uhvPnagvWR+wAgNs=",
       "System.Private.CoreLib.wasm": "sha256-sscg+Efk8ROPq+q4IVmhShzITuoOYvB8Bsc+Mp9vcSM=",
-      "Blazor Weather App.wasm": "sha256-22dNJ1sWAPDjEuJdjcGJMNxujjP24HsZGG5Fk/w7Lzc="
+      "Blazor Weather App.wasm": "sha256-DgdFFMWdO5SBNk/SrIx7ZAdrfcQ7+UnDH5eLXVQm1fY="
     },
     "pdb": {
-      "Blazor Weather App.pdb": "sha256-DippF4niQ9mhO5mUWxMzCwn4ha6vhGPOI710SLpI1Rw="
+      "Blazor Weather App.pdb": "sha256-9kG4CzNXlnaf/IFyaPypnTw/+IcMxOdPGy9fzSKNBxM="
     }
   },
   "debugLevel": 0,

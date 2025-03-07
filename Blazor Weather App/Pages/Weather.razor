@@ -1,7 +1,9 @@
 ﻿@page "/"
 @inject HttpClient Http
-@using System.Text.Json
 @inject IJSRuntime JS
+@using System.Text.Json
+@using Newtonsoft.Json 
+@using JsonSerializer = System.Text.Json.JsonSerializer
 
 <PageTitle>Weather</PageTitle>
 <div class="container">
@@ -21,6 +23,7 @@
 <WeatherInfo WeatherHandler="@this"></WeatherInfo>
 
 @code {
+
     private double Latitude { get; set; }
     private double Longitude { get; set; }
     private DotNetObjectReference<Weather>? dotNetHelper;
@@ -35,22 +38,27 @@
     public int? ForecastDaysAmount = 5;
     public event Action<WeatherInfoModel.Root> OnWeatherLoaded;
     public event Action<List<WeatherForecastModel.WeatherForecast>> OnForecastLoaded;
-    public event Func<Task> OnLocationRecieved;
     private async Task GetCityWeather()
     {
         isRunning = true;
-        GetLocation();
         await LoadWeatherForArea(EnteredCityName,InitProgress());
     }
     private async Task GetCityNameLocation()
     {
         isRunning = true;
-        OnLocationRecieved+=GetCityName;
-        GetLocation();
+        await GetCityName();
     }
     public async Task<HttpResponseMessage> CallApi(string url)
     {
-        return await Task.Run(()=>Http.GetAsync(url));
+        try
+        {
+            return await Task.Run(()=>Http.GetAsync(url));
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
     }
     public async Task LoadWeatherForArea(string CityName,IProgress<int> progress)
     {
@@ -78,7 +86,6 @@
     }
     private async Task GetCityName()
     {
-        OnLocationRecieved-=GetCityName;
         var progress = InitProgress();
         string apiUrl = $"https://nominatim.openstreetmap.org/reverse?format=json&lat={Latitude}&lon={Longitude}&zoom=10&addressdetails=1";
         var LocationInfo = await Task.Run(() => ProcessRequest(apiUrl,progress));
@@ -104,9 +111,10 @@
     public async Task GetForeCast()
     {
         var progress = InitProgress();
-        string apiUrl = $"https://api.openweathermap.org/data/2.5/forecast?lat={Latitude}&lon={Longitude}&cnt=40&appid={apiKey}";
+        string apiUrl = $"https://api.openweathermap.org/data/2.5/forecast?lat={Latitude}&lon={Longitude}&cnt={ForecastDaysAmount}&appid={apiKey}";
         var ForecastInfo = await Task.Run(() => ProcessRequest(apiUrl,progress));
-        List<WeatherForecastModel.WeatherForecast>? ForecastData = JsonSerializer.Deserialize<List<WeatherForecastModel.WeatherForecast>>(ForecastInfo);
+        WeatherForecastModel.WeatherData? rootData = JsonConvert.DeserializeObject<WeatherForecastModel.WeatherData>(ForecastInfo);
+        List<WeatherForecastModel.WeatherForecast>? ForecastData = rootData.List;
         OnForecastLoaded?.Invoke(ForecastData);
     }
     /*public async Task GetWeatherAlerts()
@@ -118,12 +126,12 @@
     {
         Latitude = latitude;
         Longitude = longitude;
-        OnLocationRecieved?.Invoke();
     }
     protected override void OnInitialized()
     {
         DisplayMessage = "Welcome, what would you like to see";
-        AreaNotLoaded = true;
+        AreaNotLoaded = true; 
+        Task.Run( () => GetLocation());
     }
     
     }

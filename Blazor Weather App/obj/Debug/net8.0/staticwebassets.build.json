@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "AAFpi02S/dec4deTbeFBVo5cYtPSNNMf8TPGogNsCSY=",
+  "Hash": "GXyiMR+cV5crfV1Za0epNT4PvVx0tV06eWuQiQ/kmiQ=",
   "Source": "Blazor Weather App",
   "BasePath": "/",
   "Mode": "Root",
@@ -7807,12 +7807,12 @@
       "OriginalItemSpec": "C:\\Users\\kidak\\RiderProjects\\Blazor-Weather-App\\Blazor Weather App\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Blazor Weather App.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\kidak\\RiderProjects\\Blazor-Weather-App\\Blazor Weather App\\wwwroot\\.nojekyll",
+      "Identity": "C:\\Users\\kidak\\RiderProjects\\Blazor-Weather-App\\Blazor Weather App\\wwwroot\\Assets\\menu icon.png",
       "SourceId": "Blazor Weather App",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\kidak\\RiderProjects\\Blazor-Weather-App\\Blazor Weather App\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": ".nojekyll",
+      "RelativePath": "Assets/menu icon.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -7823,7 +7823,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\.nojekyll"
+      "OriginalItemSpec": "wwwroot\\Assets\\menu icon.png"
     },
     {
       "Identity": "C:\\Users\\kidak\\RiderProjects\\Blazor-Weather-App\\Blazor Weather App\\wwwroot\\css\\app.css",
@@ -7957,25 +7957,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\Location.js"
-    },
-    {
-      "Identity": "C:\\Users\\kidak\\RiderProjects\\Blazor-Weather-App\\Blazor Weather App\\wwwroot\\sample-data\\weather.json",
-      "SourceId": "Blazor Weather App",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\kidak\\RiderProjects\\Blazor-Weather-App\\Blazor Weather App\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "sample-data/weather.json",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\sample-data\\weather.json"
     }
   ]
 }
