@@ -15,13 +15,9 @@
     </ItemGroup>
 
     <ItemGroup>
+      <None Include="wwwroot\css\ProgressBar.css" />
+      <None Include="wwwroot\css\Weather.css" />
       <None Include="wwwroot\js\Location.js" />
-      <None Update="Pages\ProgressBar.css">
-        <DependentUpon>ProgressBar.razor</DependentUpon>
-      </None>
-      <None Update="Pages\Weather.css">
-        <DependentUpon>Weather.razor</DependentUpon>
-      </None>
     </ItemGroup>
 
     <ItemGroup>

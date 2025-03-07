@@ -818,7 +818,6 @@ C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\obj\Release\n
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\obj\Release\net8.0\staticwebassets\msbuild.buildTransitive.Blazor Weather App.props
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\obj\Release\net8.0\staticwebassets.pack.json
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\obj\Release\net8.0\scopedcss\Layout\MainLayout.razor.rz.scp.css
-C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\obj\Release\net8.0\scopedcss\Layout\NavMenu.razor.rz.scp.css
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\obj\Release\net8.0\scopedcss\bundle\Blazor Weather App.styles.css
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\obj\Release\net8.0\scopedcss\projectbundle\Blazor Weather App.bundle.scp.css
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\obj\Release\net8.0\compressed\q8fv3xypsi.gz
@@ -1030,8 +1029,6 @@ C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\obj\Release\n
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\obj\Release\net8.0\refint\Blazor Weather App.dll
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\obj\Release\net8.0\Blazor Weather App.pdb
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\obj\Release\net8.0\ref\Blazor Weather App.dll
-C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\obj\Release\net8.0\scopedcss\Pages\WeatherInfo.razor.rz.scp.css
-C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\obj\Release\net8.0\scopedcss\Pages\WeatherDayInfo.razor.rz.scp.css
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Release\net8.0\wwwroot\_framework\Newtonsoft.Json.wasm
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Release\net8.0\wwwroot\_framework\Newtonsoft.Json.wasm.gz
 C:\Users\kidak\RiderProjects\Blazor-Weather-App\Blazor Weather App\bin\Release\net8.0\Newtonsoft.Json.dll

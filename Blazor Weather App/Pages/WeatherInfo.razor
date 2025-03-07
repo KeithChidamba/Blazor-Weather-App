@@ -1,12 +1,13 @@
 <div>
     <WeatherDayInfo WeatherInfoHandler="this"></WeatherDayInfo>
+    <br/>
     @if (LoadedData)
     {
         @if (isForecast)
         {
             <div>
-                <button @onclick="NextDay">Next</button>
-                <button @onclick="PrevDay">Previous</button>
+                <button class="round-button" @onclick="PrevDay">Previous</button>
+                <button class="round-button" @onclick="NextDay">Next</button>
             </div>
         }
     }
@@ -18,7 +19,7 @@
     bool isForecast = false;
     private int CurrentDay;
     bool NavigationLimit = false;
-    bool LoadedData = false;
+    public bool LoadedData = false;
     public event Action OnNewDay;
 
     bool isLimit(bool GoNext)

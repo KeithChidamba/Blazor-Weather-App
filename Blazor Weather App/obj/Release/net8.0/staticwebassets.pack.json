@@ -17,6 +17,26 @@
       "PackagePath": "staticwebassets\\Assets\\menu icon.png"
     },
     {
+      "Id": "C:\\Users\\kidak\\RiderProjects\\Blazor-Weather-App\\Blazor Weather App\\wwwroot\\css\\NavMenu.css",
+      "PackagePath": "staticwebassets\\css\\NavMenu.css"
+    },
+    {
+      "Id": "C:\\Users\\kidak\\RiderProjects\\Blazor-Weather-App\\Blazor Weather App\\wwwroot\\css\\ProgressBar.css",
+      "PackagePath": "staticwebassets\\css\\ProgressBar.css"
+    },
+    {
+      "Id": "C:\\Users\\kidak\\RiderProjects\\Blazor-Weather-App\\Blazor Weather App\\wwwroot\\css\\Weather.css",
+      "PackagePath": "staticwebassets\\css\\Weather.css"
+    },
+    {
+      "Id": "C:\\Users\\kidak\\RiderProjects\\Blazor-Weather-App\\Blazor Weather App\\wwwroot\\css\\WeatherDayInfo.css",
+      "PackagePath": "staticwebassets\\css\\WeatherDayInfo.css"
+    },
+    {
+      "Id": "C:\\Users\\kidak\\RiderProjects\\Blazor-Weather-App\\Blazor Weather App\\wwwroot\\css\\WeatherInfo.css",
+      "PackagePath": "staticwebassets\\css\\WeatherInfo.css"
+    },
+    {
       "Id": "C:\\Users\\kidak\\RiderProjects\\Blazor-Weather-App\\Blazor Weather App\\wwwroot\\css\\app.css",
       "PackagePath": "staticwebassets\\css\\app.css"
     },
