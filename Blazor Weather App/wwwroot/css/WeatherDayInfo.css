@@ -28,6 +28,9 @@
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
 }
 .weather-card {
     width: 35%;

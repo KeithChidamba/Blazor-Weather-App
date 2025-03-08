@@ -32,7 +32,7 @@
 }
 .top-right button :disabled {
     background-color: #ccc; /* Greyed out */
-    color: #666; /* Darker text color */
+    color: #ff0000; /* Darker text color */
     cursor: not-allowed; /* Change cursor to indicate it's disabled */
     transform: none; /* Disable scaling */
 }

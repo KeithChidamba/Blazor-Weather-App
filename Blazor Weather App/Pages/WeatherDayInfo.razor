@@ -1,29 +1,31 @@
 @if(WeatherInfoHandler.LoadedData)
 {
+    <div class="button-container">
+        <button class="round-button" @onclick="()=>SwitchSymbol(true)">Fahrenheit</button>
+        <button class="round-button" @onclick="()=>SwitchSymbol(false)"> Celsius</button>
+        <button class="round-button" @onclick="()=>SwitchUnits(false)">Km/h</button>
+        <button class="round-button" @onclick="()=>SwitchUnits(true)">mph</button>
+    </div>
     <div class="weather-container">
-        <div class="weather-card">
-            <img src="https://cdn-icons-png.flaticon.com/512/1163/1163661.png" alt="Sunny">
-            <span class="Description">
-                Description: @CurrentWeatherData.description
-            </span>
-            <div class="Large-Details">
-                <span>Temperature: @CurrentTemperature @TemperatureSymbol</span>
-                <div class="button-container">
-                    <button class="round-button" @onclick="ShowFahrenheit">Fahrenheit</button>
-                    <button class="round-button" @onclick="ShowCelsius">Celsius</button>
-                </div>
-            </div>
-            <div class="Large-Details">
-                <span>Wind speed: @CurrentWindSpeed @SpeedSymbol</span>
-                <div class="button-container">
-                    <button class="round-button" @onclick="Show_kmh">Km/h</button>
-                    <button class="round-button" @onclick="Show_mph">mph</button>
-                </div>
-            </div>
-            <span
-                class="Details">Humidity: @CurrentWeatherData.HumidityData @HumiditySymbol
-            </span>
-        </div>
+        @foreach (WeatherInfoForDay dayInfo in WeatherInfoHandler.ForecastDaysInfo)
+        {
+            <div class="weather-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/1163/1163661.png" alt="Sunny">
+                <span
+                    class="Details">@dayInfo.date
+                </span>
+                <span class="Description">
+                    Description: @dayInfo.description
+                </span>
+                <div class="Large-Details">
+                    <span>Temperature: @dayInfo.CurrentTemperature  @TemperatureSymbol</span>
+                    <br/><span>Wind speed: @dayInfo.CurrentWindSpeed @SpeedSymbol</span>
+                    </div>
+                <span
+                    class="Details">Humidity: @dayInfo.HumidityData @HumiditySymbol
+                </span>
+            </div>    
+        }
     </div>
 }
 @code {
@@ -31,39 +33,32 @@
     private string? TemperatureSymbol = "\u00b0C";
     private string? SpeedSymbol = "Km/h";
     private WeatherInfoForDay? CurrentWeatherData;
-    private float CurrentTemperature;
-    private float CurrentWindSpeed;
     private string? HumiditySymbol = "g/m\u00b3";
-    
+    DateTime currentDate;
     protected override void OnInitialized()
     {
+        //
         WeatherInfoHandler.OnNewDay += LoadInfo;
+        currentDate = DateTime.Today;
+        
     }
-    public void LoadInfo()
+    private void LoadInfo()
     {
         CurrentWeatherData = WeatherInfoHandler?.CurrentWeatherDay;
-        Show_kmh();
-        ShowCelsius();
         StateHasChanged();
     }
-    public void Show_kmh()
+    private void SwitchSymbol(bool isFahrenheit)
     {
-        CurrentWindSpeed = CurrentWeatherData.WindSpeedData;
+        foreach (WeatherInfoForDay dayInfo in WeatherInfoHandler.ForecastDaysInfo)
+            dayInfo.SwitchToFahrenheit(isFahrenheit);
+        if (isFahrenheit) {TemperatureSymbol = "\u00b0F"; return; }
+        TemperatureSymbol = "\u00b0C"; 
+    }
+    private void SwitchUnits(bool isMph)
+    {
+        foreach (WeatherInfoForDay dayInfo in WeatherInfoHandler.ForecastDaysInfo)
+            dayInfo.SwitchToMph(isMph);
+        if(isMph) {SpeedSymbol = "m/h"; return; }
         SpeedSymbol = "Km/h";
-    }
-    public void Show_mph()
-    {
-        CurrentWindSpeed = (float)Math.Round(CurrentWeatherData.WindSpeedData * 0.621371f,4);
-        SpeedSymbol = "m/h";
-    }
-    public void ShowFahrenheit()
-    {
-        CurrentTemperature = (float)Math.Round(CurrentWeatherData.TemperatureData * (9f / 5) , 2) + 32;
-        TemperatureSymbol = "\u00b0F";
-    }
-    public void ShowCelsius()
-    {
-        CurrentTemperature = CurrentWeatherData.TemperatureData;
-        TemperatureSymbol = "\u00b0C";
     }
 }

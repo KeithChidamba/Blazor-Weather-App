@@ -10,7 +10,6 @@
 <div class="top-right">
     <input placeholder="Enter City Name"  @bind-value="EnteredCityName"/>
     <button class="SearchButton" @onclick="GetCityWeather" disabled="@isRunning">Get Weather</button>
-
     <button class="SearchButton" @onclick="GetAlertsForCity" disabled="@AreaNotLoaded">Get Weather Alerts</button>
     <button class="SearchButton" @onclick="GetCityNameLocation" disabled="@isRunning">Get my Location's Weather</button>
     <button class="SearchButton" @onclick="GetForeCast" disabled="@AreaNotLoaded">Get Forecast</button>
@@ -25,13 +24,11 @@
     <WeatherInfo WeatherHandler="@this"></WeatherInfo>
 @code {
 
-    private float Latitude { get; set; }
-    private float Longitude { get; set; }
+    private float Latitude;
+    private float Longitude;
     private DotNetObjectReference<Weather>? dotNetHelper;
     private static readonly string OpenWeatherApiKey = "9ccbafa11739fe75b7bbcb29da052335";
-    private static readonly string GeoNamesUsername = "kidakwashe14";
     private static readonly string WeatherApiKey = "5c81db43eed2421ca1f84712250703";
-    private static readonly string baseUrl = "https://api.openweathermap.org/data/2.5/weather";
     private string? DisplayMessage;
     private string? WeatherAlertMessage = string.Empty;
     private string? EnteredCityName = string.Empty;
