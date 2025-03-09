@@ -10,7 +10,7 @@
         @foreach (WeatherInfoForDay dayInfo in WeatherInfoHandler.ForecastDaysInfo)
         {
             <div class="weather-card">
-                <img src="https://cdn-icons-png.flaticon.com/512/1163/1163661.png" alt="Sunny">
+                <img src="@dayInfo.imageLink" alt="@dayInfo.description"/>
                 <span
                     class="Details">@dayInfo.date
                 </span>
@@ -18,9 +18,9 @@
                     Description: @dayInfo.description
                 </span>
                 <div class="Large-Details">
-                    <span>Temperature: @dayInfo.CurrentTemperature  @TemperatureSymbol</span>
+                    <span>Temperature: @dayInfo.CurrentTemperature @TemperatureSymbol</span>
                     <br/><span>Wind speed: @dayInfo.CurrentWindSpeed @SpeedSymbol</span>
-                    </div>
+                </div>
                 <span
                     class="Details">Humidity: @dayInfo.HumidityData @HumiditySymbol
                 </span>

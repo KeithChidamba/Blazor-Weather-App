@@ -9,6 +9,7 @@ public class WeatherInfoForDay
     public float CurrentWindSpeed;
     public string description;
     public string date;
+    public string imageLink;
     public WeatherInfoForDay(string _description, float _CurrentTemperature, float _CurrentWindSpeed, double _humidity, int ForecastDayNumber)
     {
         description = _description;
@@ -18,8 +19,21 @@ public class WeatherInfoForDay
         CurrentTemperature = TemperatureData;
         CurrentWindSpeed = WindSpeedData;
         date = DateTime.Today.AddDays(ForecastDayNumber).ToString("dddd, dd MMM yyyy");
+        imageLink = GetIcon();
     }
 
+    string GetIcon()
+    {
+        if(description.Contains("clear") )
+            return imageLink = "https://cdn2.iconfinder.com/data/icons/weather-682/1024/sun_sunny-512.png";
+        if(description.Contains("few clouds"))
+            return imageLink = "https://cdn-icons-png.flaticon.com/512/1163/1163661.png";
+        if(description.Contains("light rain"))
+            return imageLink = "https://cdn-icons-png.flaticon.com/512/1163/1163657.png";
+        if(description.Contains("moderate rain") | description.Contains("heavy intensity rain"))
+            return imageLink = "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather07-512.png";
+        return imageLink = "https://cdn-icons-png.flaticon.com/512/1163/1163624.png";
+    }
     public void SwitchToFahrenheit(bool isFahrenheit)
     {
         if(isFahrenheit) {CurrentTemperature = (float)Math.Round(TemperatureData * (9f / 5) , 2) + 32; return; }

@@ -6,13 +6,17 @@
 @using JsonSerializer = System.Text.Json.JsonSerializer
 
 <PageTitle>Weather</PageTitle>
-<!--<input placeholder="number of days for forecast" disabled="@AreaNotLoaded"  @bind-value="ForecastDaysAmount"/>-->
+
 <div class="top-right">
     <input placeholder="Enter City Name"  @bind-value="EnteredCityName"/>
-    <button class="SearchButton" @onclick="GetCityWeather" disabled="@isRunning">Get Weather</button>
-    <button class="SearchButton" @onclick="GetAlertsForCity" disabled="@AreaNotLoaded">Get Weather Alerts</button>
-    <button class="SearchButton" @onclick="GetCityNameLocation" disabled="@isRunning">Get my Location's Weather</button>
-    <button class="SearchButton" @onclick="GetForeCast" disabled="@AreaNotLoaded">Get Forecast</button>
+    <button @onclick="GetCityWeather" disabled="@isRunning">Get Weather</button>
+    <button @onclick="GetAlertsForCity" disabled="@AreaNotLoaded">Get Weather Alerts</button><br/>
+    <div>
+        <label>Enter Number of days</label>
+        <input @bind-value="ForecastDaysAmount"/>
+        <button @onclick="GetForeCast" disabled="@AreaNotLoaded">Get Forecast</button>
+    </div>
+    <!--<button  @onclick="GetCityNameLocation" disabled="@isRunning">Get my Location's Weather</button>-->
 </div>
 
 <h1 class="TitleHeader">@DisplayMessage</h1>
@@ -36,7 +40,7 @@
     private bool isRunning = false;
     private bool AreaNotLoaded = true;
     private int progressValue = 0;
-    public int? ForecastDaysAmount = 4;
+    public int? ForecastDaysAmount;
     public event Action<WeatherInfoModel.Root> OnWeatherLoaded;
     public event Action<List<WeatherForecastModel.WeatherForecast>> OnForecastLoaded;
     private async Task GetCityWeather()
@@ -97,6 +101,7 @@
         var progress = InitProgress();
         string apiUrl = $"https://nominatim.openstreetmap.org/reverse?format=json&lat={Latitude}&lon={Longitude}&zoom=10&addressdetails=1";
         var LocationInfo = await Task.Run(() => ProcessRequest(apiUrl,progress));
+        Console.WriteLine(LocationInfo);
         string CountyName = JsonDocument.Parse(LocationInfo).RootElement.GetProperty("address").GetProperty("county").ToString();
         CityName = CountyName.Replace("City of ", "");
         await Task.Run(() =>  LoadWeatherForArea(CityName,progress));
